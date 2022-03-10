@@ -1,40 +1,24 @@
-package com.company;
 
-/**
- * Main class solves the  Room Assignment Problem depending on certain conditions.
- *
- * @author Stratan Corina
- * @see Room
- * @see Event
- */
 public class Main {
 
-    /**
-     * This is the main() method for the driver program.
-     *
-     * @param args stores the incoming command line arguments for the program.
-     */
     public static void main(String[] args) {
 
-        Event[] events = new Event[5];
-        int index = 0;
-        events [index++] = new Event("C1", 100, 8, 10);
-        events [index++] = new Event("C2", 100, 10, 12);
-        events [index++]= new Event("L1", 30, 8, 10);
-        events [index++]= new Event("L2",10, 8, 10);
-        events [index++]= new Event("L3", 30, 10, 12);
+        Network network = new Network();
 
-        Room[] rooms = new Room[4];
-        rooms [0] = new ComputerLab("401",30 , "Linux");
-        rooms [1]= new ComputerLab("403", 30 , "Windows");
-        rooms [2] = new LectureHall("405", 30, true);
-        rooms [3] = new LectureHall("309", 100, false );
+        Computer computerA = new Computer("A", "00:00:5e:00:53:af" , "v1",  "192.168.56.1", 512 );
+        Router routerA = new Router("A", "00:00:5e:00:53:af", "v2", "192.168.56.1");
+        Switch switchA = new Switch("A", "00:00:5e:00:53:af", "v3");
+        Switch switchB = new Switch("B" , "00:00:5e:00:53:af", "v4");
+        Router routerB = new Router("B", "00:00:5e:00:53:af", "v5", "192.168.56.1");
+        Computer computerB = new Computer("B", "00:00:5e:00:53:af" , "v6",  "192.168.56.1", 256 );
 
-        Problem pb = new Problem(events,rooms);
-        System.out.println(pb);
-        Algorithm greedy = new GreedyAlgorithm(events,rooms);
-        //Solution sol = greedy.solve();
+        network.addNode(computerA);
+        network.addNode(routerA);
+        network.addNode(switchA);
+        network.addNode(switchB);
+        network.addNode(routerB);
+        network.addNode(computerB);
 
-
+        System.out.println(network);
     }
 }
