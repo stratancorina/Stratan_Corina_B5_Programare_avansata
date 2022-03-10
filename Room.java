@@ -1,45 +1,48 @@
 package com.company;
 
-//Class for Rooms
-//Each room has a name, a type and a capacity.
-public class Room {
-    private String name;
-    private Type type;
-    private int capacity;
+/**
+ * This is an abstract class Room.
+ *
+ * @author Stratan Corina
+ */
+ public abstract class Room {
 
-    public Room(String name, Type type, int capacity) {
+    public String name;
+    public int capacity;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Room room = (Room) o;
+        return capacity == room.capacity && name.equals(room.name) ;
+    }
+
+    public Room(String name, int capacity) {
         this.name = name;
-        this.type = type;
         this.capacity = capacity;
     }
 
     public String getName() {
         return name;
     }
-    public Type getType() {
-        return type;
-    }
-    public int getCapacity() {
-        return capacity;
-    }
 
     public void setName(String name) {
         this.name = name;
     }
-    public void setType(Type type) {
-        this.type = type;
+
+    public int getCapacity() {
+        return capacity;
     }
+
     public void setCapacity(int capacity) {
         this.capacity = capacity;
     }
 
     @Override
     public String toString() {
-        return "Sala {" +
-                "nume = '" + name + '\'' +
-                ", tip = " + type +
-                ", capacitate = " + capacity +
-                '}';
+        return  name;
     }
+
 
 }
