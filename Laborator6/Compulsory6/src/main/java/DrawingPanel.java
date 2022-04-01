@@ -14,7 +14,7 @@ public class DrawingPanel extends JPanel {
 
     public DrawingPanel(MainFrame frame) {
         this.frame = frame;
-        init(50,50);
+        init(10,10);
     }
     final void init(int rows, int cols) {
         this.rows = rows;
