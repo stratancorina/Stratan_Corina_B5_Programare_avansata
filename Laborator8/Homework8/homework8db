@@ -1,0 +1,10 @@
+CREATE TABLE cities (id int,
+					country VARCHAR(50),
+					name VARCHAR(50),
+					capital bit,
+					latitude DOUBLE PRECISION,
+					longitude DOUBLE PRECISION);
+					
+SELECT * FROM CITIES;
+
+drop table cities;
