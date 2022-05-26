@@ -1,0 +1,19 @@
+DROP TABLE persons CASCADE;
+
+DROP TABLE messages;
+
+CREATE TABLE persons (
+	id SERIAL UNIQUE,
+  	name VARCHAR(100) NOT NULL,
+	password VARCHAR(100) NOT NULL
+);
+
+CREATE TABLE messages (
+	id SERIAL UNIQUE,
+	person_id INTEGER,
+	friend_id INTEGER,
+	message VARCHAR(1000)
+);
+
+INSERT INTO persons(name, password) VALUES('ana','ana');
+INSERT INTO persons(name, password) VALUES('ana-maria','ana-maria');
